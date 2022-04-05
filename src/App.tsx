@@ -1,21 +1,13 @@
 import { InjectedConnector, useStarknet } from "@starknet-react/core";
+import ConnectWallet from "./components/ConnectWallet";
+import Exercises from "./components/Exercises";
 
 function App() {
   const { account } = useStarknet();
-  const { connect } = useStarknet();
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          <button onClick={() => connect(new InjectedConnector())}>
-            Connect Wallet
-          </button>
-        </p>
-        <p>gm {account}</p>
-      </header>
-    </div>
-  );
+  const connected = !!account;
+
+  return <div>{connected ? <Exercises /> : <ConnectWallet />}</div>;
 }
 
 export default App;

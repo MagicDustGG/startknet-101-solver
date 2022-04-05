@@ -1,0 +1,105 @@
+[
+    {
+        "inputs": [],
+        "name": "tderc20_address",
+        "outputs": [
+            {
+                "name": "_tderc20_address",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "players_registry",
+        "outputs": [
+            {
+                "name": "_players_registry",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "workshop_id",
+        "outputs": [
+            {
+                "name": "_workshop_id",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "exercise_id",
+        "outputs": [
+            {
+                "name": "_exercise_id",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "account",
+                "type": "felt"
+            }
+        ],
+        "name": "has_validated_exercise",
+        "outputs": [
+            {
+                "name": "has_validated_exercice",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_tderc20_address",
+                "type": "felt"
+            },
+            {
+                "name": "_players_registry",
+                "type": "felt"
+            },
+            {
+                "name": "_workshop_id",
+                "type": "felt"
+            },
+            {
+                "name": "_exercise_id",
+                "type": "felt"
+            }
+        ],
+        "name": "constructor",
+        "outputs": [],
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "name": "value_a",
+                "type": "felt"
+            },
+            {
+                "name": "value_b",
+                "type": "felt"
+            }
+        ],
+        "name": "claim_points",
+        "outputs": [],
+        "type": "function"
+    }
+]

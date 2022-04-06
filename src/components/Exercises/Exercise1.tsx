@@ -7,7 +7,12 @@ const ADDRESS =
 
 const Exercise1 = () => {
   const { contract } = useContract({ abi: abi as Abi, address: ADDRESS });
-  const { data, loading, error, reset, invoke } = useStarknetInvoke({
+  const {
+    data: transaction,
+    loading,
+    error,
+    invoke,
+  } = useStarknetInvoke({
     contract,
     method: "claim_points",
   });
@@ -24,7 +29,16 @@ const Exercise1 = () => {
       ) : (
         <button onClick={() => invoke({ args: [] })}>Claim points</button>
       )}
-      {data && <p>{JSON.stringify(data)}</p>}
+      {transaction && (
+        <p>
+          <a
+            target="_blank"
+            href={`https://goerli.voyager.online/tx/${transaction}`}
+          >
+            {transaction}
+          </a>
+        </p>
+      )}
     </>
   );
 };

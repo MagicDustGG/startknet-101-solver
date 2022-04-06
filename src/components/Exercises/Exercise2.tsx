@@ -18,7 +18,13 @@ const Exercise2 = () => {
     method: "my_secret_value",
     args: [],
   });
-  const { data, loading, error, reset, invoke } = useStarknetInvoke({
+  const {
+    data: transaction,
+    loading,
+    error,
+    reset,
+    invoke,
+  } = useStarknetInvoke({
     contract,
     method: "claim_points",
   });
@@ -49,7 +55,16 @@ const Exercise2 = () => {
           </button>
         </div>
       )}
-      {data && <p>{JSON.stringify(data)}</p>}
+      {transaction && (
+        <p>
+          <a
+            target="_blank"
+            href={`https://goerli.voyager.online/tx/${transaction}`}
+          >
+            {transaction}
+          </a>
+        </p>
+      )}
     </>
   );
 };

@@ -41,7 +41,7 @@ const Exercise2 = () => {
         <code>claim_points</code> method.
       </Description>
       {secret ? (
-        <p>Secret value is: {secret[0].toNumber()}</p>
+        <p>Secret value: {secret[0].toNumber()}</p>
       ) : (
         <p>Secret value is loading</p>
       )}

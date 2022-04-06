@@ -74,7 +74,7 @@ const Exercise12 = () => {
           read the secret in the events. This will take a few minutes.
         </p>
       )}
-      {secret && <p>Secret value is: {parseInt(secret, 16) - 32}</p>}
+      {secret && <p>Secret value: {parseInt(secret, 16) - 32}</p>}
       {registring && <p>Registring...</p>}
       {!registring && !registerTransaction && (
         <Button onClick={() => register({ args: [] })}>

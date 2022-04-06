@@ -1,12 +1,18 @@
 import { InjectedConnector, useStarknet } from "@starknet-react/core";
+import Button from "./Exercises/Button";
 
 const ConnectWallet = () => {
   const { connect } = useStarknet();
 
   return (
-    <button onClick={() => connect(new InjectedConnector())}>
-      Connect Wallet
-    </button>
+    <div className="flex justify-center mt-64">
+      <Button
+        onClick={() => connect(new InjectedConnector())}
+        extraClass="py-8 px-12 text-2xl"
+      >
+        Connect wallet
+      </Button>
+    </div>
   );
 };
 

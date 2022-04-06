@@ -6,6 +6,10 @@ import {
 import { useEffect, useState } from "react";
 import { Abi } from "starknet";
 import abi from "../../abis/ex02.json";
+import Button from "./Button";
+import Description from "./Description";
+import Title from "./Title";
+import Transaction from "./Transaction";
 
 const ADDRESS =
   "0x06511a41c0620d756ff9e3c6b27d5aea2d9b65e162abdec72c4d746c0a1aca05";
@@ -29,13 +33,13 @@ const Exercise2 = () => {
     method: "claim_points",
   });
   return (
-    <>
-      <h1>Exercise 2</h1>
-      <p>
+    <div className="mb-12">
+      <Title>Exercise 2</Title>
+      <Description>
         This exercise consists in calling the <code>my_secret_value</code>{" "}
         method to get a secret value, then provide it to the{" "}
         <code>claim_points</code> method.
-      </p>
+      </Description>
       {secret ? (
         <p>Secret value is: {secret[0].toNumber()}</p>
       ) : (
@@ -45,27 +49,19 @@ const Exercise2 = () => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="flex">
+        <div className="flex items-center">
           <input
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
+            className="border border-slate-200 h-12 mr-6"
           />
-          <button onClick={() => invoke({ args: [userInput] })}>
+          <Button onClick={() => invoke({ args: [userInput] })}>
             Claim points
-          </button>
+          </Button>
         </div>
       )}
-      {transaction && (
-        <p>
-          <a
-            target="_blank"
-            href={`https://goerli.voyager.online/tx/${transaction}`}
-          >
-            {transaction}
-          </a>
-        </p>
-      )}
-    </>
+      {transaction && <Transaction>{transaction}</Transaction>}
+    </div>
   );
 };
 

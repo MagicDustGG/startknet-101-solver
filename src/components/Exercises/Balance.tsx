@@ -20,15 +20,17 @@ const Balance = () => {
   const balance = data
     ? parseInt(data[0].low.toString()) / 1000000000000000000
     : undefined;
-  console.log(data ? data : "not yet loaded");
   return (
-    <div className="p-4">
-      <div
-        className={`${loading ? "animate-pulse" : "animate-ping"} ${
-          !balance && "text-slate-400"
-        }`}
-      >
-        {balance || 0}
+    <div className="flex justify-center py-4">
+      <div className="p-4 border border-slate-600 bg-white">
+        <strong>Your points:</strong>{" "}
+        <span
+          className={`${loading && "animate-pulse"} ${
+            !balance && "text-slate-400"
+          }`}
+        >
+          {balance || 0}
+        </span>
       </div>
     </div>
   );

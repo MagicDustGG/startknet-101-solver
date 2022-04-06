@@ -8,6 +8,9 @@ import {
 import { useEffect, useState } from "react";
 import { Abi } from "starknet";
 import abi from "../../abis/ex12.json";
+import Button from "./Button";
+import Description from "./Description";
+import Title from "./Title";
 
 const ADDRESS =
   "0x0658e159d61d4428b6d5fa90aa20083786674c49a645fe416fc4c35b145f8a83";
@@ -55,14 +58,14 @@ const Exercise12 = () => {
   }, [blockData, registerTransaction]);
 
   return (
-    <>
-      <h1>Exercise 12</h1>
-      <p>
+    <div className="mb-12">
+      <Title>Exercise 12</Title>
+      <Description>
         This exercise consists in calling the{" "}
         <code>assign_user_slot_called</code> method to get a secret value, read
         it from the emitted event and then provide it to the{" "}
         <code>claim_points</code> method.
-      </p>
+      </Description>
       {registerError && !registring && <p>{registerError}</p>}
       {claimError && !claiming && <p>{claimError}</p>}
       {registerTransaction && !secret && (
@@ -74,23 +77,24 @@ const Exercise12 = () => {
       {secret && <p>Secret value is: {parseInt(secret, 16) - 32}</p>}
       {registring && <p>Registring...</p>}
       {!registring && !registerTransaction && (
-        <button onClick={() => register({ args: [] })}>
+        <Button onClick={() => register({ args: [] })}>
           Register to get a secret value
-        </button>
+        </Button>
       )}
       {claiming && <p>Claiming...</p>}
       {secret && !claiming && (
-        <div className="flex">
+        <div className="flex items-center">
           <input
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
+            className="border border-slate-200 h-12 mr-6"
           />
-          <button onClick={() => claim({ args: [userInput] })}>
+          <Button onClick={() => claim({ args: [userInput] })}>
             Claim points
-          </button>
+          </Button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
